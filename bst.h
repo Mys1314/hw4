@@ -518,6 +518,7 @@ template<typename Key, typename Value>
 void BinarySearchTree<Key, Value>::remove(const Key& key)
 {
     // TODO
+    //std::cout << "remove" << std::endl;
     Node<Key, Value>* cnode = internalFind(key);
     if(cnode == NULL){
       return;
@@ -600,7 +601,9 @@ void BinarySearchTree<Key, Value>::clear()
 {
     // TODO
     while(root_ != NULL){
-      remove(getSmallestNode() -> getKey());
+      //std::cout << "Removing smallest node." << std::endl;
+      remove(root_ -> getKey());
+      //this->print();
     }
 }
 
@@ -685,6 +688,7 @@ int BinarySearchTree<Key, Value>::heights(Node<Key, Value> *root) const{
 template<typename Key, typename Value>
 void BinarySearchTree<Key, Value>::nodeSwap( Node<Key,Value>* n1, Node<Key,Value>* n2)
 {
+  //std::cout << "swaped" << std::endl;
     if((n1 == n2) || (n1 == NULL) || (n2 == NULL) ) {
         return;
     }
